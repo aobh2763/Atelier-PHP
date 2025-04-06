@@ -18,19 +18,47 @@ class Etudiant {
     }
 
     public function addNote(float $note) {
-        if ($note < 0 && $note > 20) {
+        if ($note < 0 || $note > 20) {
             return;
         }
 
         array_push($this->notes, $note);
     }
 
+    public function setNotes(array $notes) {
+        foreach ($notes as $note) {
+            if ($note < 0 || $note > 20) {
+                return;
+            }
+        }
+
+        $this->notes = $notes;
+    }
+
     public function getNotes() {
         return $this->notes;
     }
 
-    public function afficheNotes() {
-        return "TBD";
+    public function afficherNotes() {
+        echo "<div class=\"bg-light border-dark-subtle border rounded p-1\">" . $this->nom . "</div>\n";
+
+        $curr_class = "";
+
+        foreach ($this->notes as $note) {
+            if ($note > 10) {
+                $curr_class = "bg-success-subtle";
+            } elseif ($note < 10) {
+                $curr_class = "bg-danger-subtle";
+            } else {
+                $curr_class = "bg-warning-subtle";
+            }
+
+            echo "<div class=\"" . $curr_class . "border-dark-subtle border rounded p-1\">" . $note . "</div>\n";
+        }
+
+        echo "<div class=\"bg-primary-subtle border-dark-subtle border rounded p-1\">Votre moyenne est : " . $this->calculMoyenne() . "</div>\n";
+        echo "<div class=\"bg-dark-subtle border-light-subtle border rounded p-1\">" . $this->admisOuNon() . "</div>";
+
     }
 
     public function calculMoyenne() {
