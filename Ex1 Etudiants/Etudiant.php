@@ -40,7 +40,7 @@ class Etudiant {
     }
 
     public function afficherNotes() {
-        echo "<div class=\"bg-light border-dark-subtle border rounded p-1\">" . $this->nom . "</div>\n";
+        echo "<div class=\"bg-light border-dark-subtle border rounded p-2\">" . $this->nom . "</div>\n";
 
         $curr_class = "";
 
@@ -53,11 +53,11 @@ class Etudiant {
                 $curr_class = "bg-warning-subtle";
             }
 
-            echo "<div class=\"" . $curr_class . "border-dark-subtle border rounded p-1\">" . $note . "</div>\n";
+            echo "<div class=\"" . $curr_class . " border-dark-subtle border rounded p-2\">" . $note . "</div>\n";
         }
 
-        echo "<div class=\"bg-primary-subtle border-dark-subtle border rounded p-1\">Votre moyenne est : " . $this->calculMoyenne() . "</div>\n";
-        echo "<div class=\"bg-dark-subtle border-light-subtle border rounded p-1\">" . $this->admisOuNon() . "</div>";
+        echo "<div class=\"bg-primary-subtle border-dark-subtle border rounded p-2\">Votre moyenne est : " . $this->calculMoyenne() . "</div>\n";
+        echo "<div class=\"bg-dark-subtle border-light-subtle border rounded p-2\">" . $this->admisOuNon() . "</div>";
 
     }
 

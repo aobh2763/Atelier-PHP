@@ -1,3 +1,17 @@
+<?php
+require 'Etudiant.php';
+
+$aymen = new Etudiant("Aymen");
+$skander = new Etudiant ("Skander");
+
+$aymen->setNotes(array(11, 13, 18, 7, 10, 13, 2, 5, 1));
+
+$skander->addNote(15);
+$skander->addNote(9);
+$skander->addNote(8);
+$skander->addNote(16);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +23,14 @@
 <body>
     <div class="row m-5">
         <div class="col-6 border rounded p-2">
-            
+            <?php
+                $aymen->afficherNotes();
+            ?>
         </div>
         <div class="col-6 border rounded p-2">
-
+            <?php
+                $skander->afficherNotes();
+            ?>
         </div>
     </div>
 
