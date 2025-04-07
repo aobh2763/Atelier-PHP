@@ -6,6 +6,8 @@
     <title>Gestionnaire d'étudiants</title>
 </head>
 <body>
-    <h1>..</h1>
+    <p>
+        test
+    </p>
 </body>
 </html>
