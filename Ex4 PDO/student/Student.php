@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/PHP/Ex4 PDO/classes/ConnectionBD.php';
+require_once __DIR__ . '/../classes/ConnectionBD.php';
 
 /*
 CREATE TABLE Student (
@@ -10,7 +10,7 @@ CREATE TABLE Student (
     PRIMARY KEY (id)
 );
 
-a3mel aymen w skander fi page wa7adhom w 3mel storeStudent
+a3mel aymen w skander fi page wa7adha (7otha fl folder hetha bch matod5olch b3athha) w a3mel storeStudent
 */
 
 class Student {
@@ -38,7 +38,7 @@ class Student {
         $req->execute(array($this->id, $this->name, $this->birthday));
     }
 
-    public static function getStudentByIt(int $id) {
+    public static function getStudentById(int $id) {
         $bd = ConnectionBD::getInstance();
 
         $req = $bd->prepare("SELECT * FROM Student WHERE id = ?");
@@ -46,7 +46,7 @@ class Student {
 
         if ($req->rowCount() == 0) {
             echo "L'étudiant n'existe pas";
-            die();
+            return null;
         }
 
         $data = $req->fetch(PDO::FETCH_ASSOC);
