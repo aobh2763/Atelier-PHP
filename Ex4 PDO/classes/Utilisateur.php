@@ -21,7 +21,7 @@ class Utilisateur {
     public function __construct(int $id, string $username, string $password, string $email) {
         $this->id = $id;
         $this->username = $username;
-        $this->password = password_hash($password, PASSWORD_BCRYPT);
+        $this->password = $password;
         $this->email = $email;
         $this->role = "user";
     }
@@ -44,6 +44,10 @@ class Utilisateur {
 
     public function getRole(): string {
         return $this->role;
+    }
+
+    public function getPassword(): string {
+        return $this->password;
     }
 
     public function setRole(string $role): void {
