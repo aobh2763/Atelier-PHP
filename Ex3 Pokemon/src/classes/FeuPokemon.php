@@ -26,6 +26,7 @@ class FeuPokemon extends Pokemon{
         }
 
         $pokemon->setHp($pokemon->getHp() - $damage);
+        return $damage;
     }
 }
 

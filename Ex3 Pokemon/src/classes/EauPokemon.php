@@ -26,6 +26,7 @@ class EauPokemon extends Pokemon{
         }
 
         $pokemon->setHp($pokemon->getHp() - $damage);
+        return $damage;
     }
 }
 
