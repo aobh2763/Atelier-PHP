@@ -1,5 +1,8 @@
 <?php
 
+/*
+CREATE USER 'php' IDENTIFIED BY 'phppass';
+*/
 class ConnectionBD {
     private static $_dbname = "studentbd";
     private static $_user = "php";

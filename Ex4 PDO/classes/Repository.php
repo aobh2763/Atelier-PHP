@@ -12,7 +12,7 @@ class Repository {
         $this->nomTable = $nomTable;
     }
 
-    // Retourne un tableau d'objets de la classe correspondante à la table
+    // Retourne un tableau d'objets de la classe correspondante à la table (fix)
     public function findAll() {
         $bd = ConnectionBD::getInstance();
 
@@ -66,39 +66,20 @@ class Repository {
         }
     }
 
-    // Retourne l'id de l'objet créé ou -1 en cas d'erreur
+    // Retourne l'id de l'objet créé
     public function create(array $details): int {
         $bd = ConnectionBD::getInstance();
 
-        switch (strtolower($this->nomTable)) {
-            case 'etudiant':
-                if (count($details) != 4) {
-                    echo "Erreur : Il fault 4 paramètres (name, birthday, image, section).";
-                    return -1;
-                }
-                $req = $bd->prepare("INSERT INTO etudiant (name, birthday, image, section) VALUES (?, ?, ?, ?)");
-                $req->execute(array($details[0], $details[1], $details[2], $details[3]));
-                return $bd->lastInsertId();
-            case 'section':
-                if (count($details) != 2) {
-                    echo "Erreur : Il fault 2 paramètres (designation, description).";
-                    return -1;
-                }
-                $req = $bd->prepare("INSERT INTO section (designation, description) VALUES (?, ?)");
-                $req->execute(array($details[0], $details[1]));
-                return $bd->lastInsertId();
-            case 'utilisateur':
-                if (count($details) != 3) {
-                    echo "Erreur : Il fault 3 paramètres (username, password, email).";
-                    return -1;
-                }
-                $req = $bd->prepare("INSERT INTO utilisateur (username, password, email) VALUES (?, ?, ?)");
-                $req->execute(array($details[0], password_hash($details[1], PASSWORD_BCRYPT), $details[2]));
-                return $bd->lastInsertId();
-            default:
-                echo "Table non reconnue : " . $this->nomTable;
-                return -1;
-        }
+        $keys = array_keys($details);
+        $keyString = implode(",", $keys);
+        $paramselements = array_fill(0, count($keys), "?");
+        $paramString = implode(",", $paramselements);
+
+        $req = "INSERT INTO $this->nomTable ($keyString) VALUES ($paramString);";
+        $reponse = $bd->prepare($req);
+        $reponse->execute(array_values($details));
+
+        return $bd->lastInsertId();
     }
 
     // Supprime l'objet de la table et retourne true si la suppression a réussi, sinon false si l'id n'existe pas
