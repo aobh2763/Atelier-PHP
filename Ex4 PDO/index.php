@@ -6,6 +6,14 @@
     <title>Gestionnaire d'étudiants</title>
 </head>
 <body>
-    eeee
+    <?php
+
+    $repEtu = new Repository("etudiant");
+
+    $id1 = $repEtu->create(array("aymen", "2000-12-01", "image.png", "GL"));
+    $id2 = $repEtu->create(array("skander", "1998-12-01", "image.png", "RT"));
+
+    echo "$repEtu->findById()";
+    ?>
 </body>
 </html>
