@@ -1,14 +1,5 @@
 <?php
 
-/*
-CREATE TABLE Section (
-	id int NOT NULL UNIQUE AUTO_INCREMENT,
-    designation varchar(3),
-    description varchar(100),
-    PRIMARY KEY (id)
-);
-*/
-
 class Section {
     private int $id;
     private string $designation;

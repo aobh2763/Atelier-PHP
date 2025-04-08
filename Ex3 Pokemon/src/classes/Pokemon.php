@@ -48,10 +48,7 @@ class Pokemon{
         $damage = rand($this->attackPokemon->getMin(), $this->attackPokemon->getMax());
 
         if($this->performSpecialAttack()){
-            $damage = min(
-                $this->attackPokemon->getMax(), 
-                $damage * $this->attackPokemon->getSpecial()
-            );
+            $damage = $damage * $this->attackPokemon->getSpecial();
         }
 
         return $damage;
@@ -127,13 +124,12 @@ class Pokemon{
         }
 
         if ($p1->isDead() && $p2->isDead()) {
-            echo "It's a tie!";
+            echo '<div class="container bg-warning-subtle border border-warning rounded mt-2 mb-2 p-2">C\'est une égalité!</div>';
         } elseif ($p1->isDead()) {
-            echo "{$p2->getName()} wins!";
+            echo '<div class="container bg-success-subtle border border-success rounded mt-2 mb-2 p-2">Le vainqueur est <img src="' . $p2->getUrl() . '" width="200"></div>';
         } else {
-            echo "{$p1->getName()} wins!";
+            echo '<div class="container bg-success-subtle border border-success rounded mt-2 mb-2 p-2">Le vainqueur est <img src="' . $p1->getUrl() . '" width="200"></div>';
         }
-        echo "<br>End of the battle<br>";
     }
 }
 

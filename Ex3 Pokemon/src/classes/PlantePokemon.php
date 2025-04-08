@@ -14,15 +14,9 @@ class PlantePokemon extends Pokemon{
         $damage = $this->getDamage();
 
         if($pokemon instanceof EauPokemon){
-            $damage = min(
-                $this->attackPokemon->getMax(),
-                $damage * 2
-            );
+            $damage = $damage * 2;
         }else if($pokemon instanceof PlantePokemon || $pokemon instanceof FeuPokemon){
-            $damage = max(
-                $this->attackPokemon->getMin(),
-                $damage * 0.5
-            );
+            $damage = intval($damage * 0.5);
         }
 
         $pokemon->setHp($pokemon->getHp() - $damage);

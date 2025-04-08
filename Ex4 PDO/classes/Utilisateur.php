@@ -1,16 +1,5 @@
 <?php
 
-/*
-CREATE TABLE Utilisateur (
-	id int UNIQUE NOT NULL AUTO_INCREMENT,
-    username varchar(30),
-    password varchar(60),
-    email varchar(30),
-    role enum('user', 'admin'),
-    PRIMARY KEY (id)
-);
-*/
-
 class Utilisateur {
     private int $id;
     private string $username;

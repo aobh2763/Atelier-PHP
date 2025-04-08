@@ -3,8 +3,8 @@ include "../src/autoloader.php";
 ?>
 
 <?php
-    $p1 = new EauPokemon("Pikachu", "https://archives.bulbagarden.net/media/upload/thumb/4/4a/0025Pikachu.png/800px-0025Pikachu.png", 200, new AttackPokemon(10, +20, 30, 0.5));
-    $p2 = new PlantePokemon("Bulbasaur", "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/640px-0001Bulbasaur.png", 250, new AttackPokemon(5, 15, 25, 0.3));
+    $p1 = new Pokemon("Pikachu", "https://archives.bulbagarden.net/media/upload/thumb/4/4a/0025Pikachu.png/800px-0025Pikachu.png", 250, new AttackPokemon(10, 40, 2, 30));
+    $p2 = new PlantePokemon("Bulbasaur", "https://archives.bulbagarden.net/media/upload/thumb/f/fb/0001Bulbasaur.png/640px-0001Bulbasaur.png", 200, new AttackPokemon(20, 50, 4, 20));
 ?>
 
 <!DOCTYPE html>

@@ -1,18 +1,5 @@
 <?php
 
-require_once __DIR__ . '/../classes/ConnectionBD.php';
-
-/*
-CREATE TABLE Student (
-	id int NOT NULL UNIQUE,
-    name varchar(50),
-    birthday date,
-    PRIMARY KEY (id)
-);
-
-a3mel aymen w skander fi page wa7adha (7otha fl folder hetha bch matod5olch b3athha) w a3mel storeStudent
-*/
-
 class Student {
     private int $id;
     private string $name;

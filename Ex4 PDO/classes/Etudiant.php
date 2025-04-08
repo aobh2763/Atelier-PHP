@@ -1,16 +1,5 @@
 <?php
 
-/*
-CREATE TABLE Etudiant (
-	id int UNIQUE NOT NULL AUTO_INCREMENT,
-    name varchar(40),
-    birthday date,
-    image varchar(100),
-    section varchar(3),
-    PRIMARY KEY (id)
-);
-*/
-
 class Etudiant {
     private int $id;
     private string $name;
