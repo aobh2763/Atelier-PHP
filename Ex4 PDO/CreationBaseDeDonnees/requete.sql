@@ -44,6 +44,14 @@ INSERT INTO Student (id, name, birthday) VALUES
 (1, 'Aymen', '1982-02-07'),
 (2, 'Skander', '2018-07-11');
 
+INSERT INTO Etudiant (id, name, birthday, section) VALUES
+(1, 'Aymen', '1982-02-07', 'GL'),
+(2, 'Skander', '2018-07-11', 'RT');
+
+INSERT INTO Section (id, designation, description) VALUES
+(1, 'GL', 'Génie Logiciel'),
+(2, 'RT', 'Reseaux et Télécommunications');
+
 INSERT INTO Utilisateur (id, username, password, email, role) VALUES
 (1, 'admin', 'admin', 'admin@gmail.com', 'admin'),
 (2, 'user', 'user', 'user@gmail.com', 'user');
