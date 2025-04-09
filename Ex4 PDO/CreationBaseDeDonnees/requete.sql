@@ -19,7 +19,7 @@ CREATE TABLE Etudiant (
 	id int UNIQUE NOT NULL AUTO_INCREMENT,
     name varchar(40),
     birthday date,
-    image varchar(100),
+    image varchar(500),
     section varchar(3),
     PRIMARY KEY (id)
 );
@@ -44,9 +44,9 @@ INSERT INTO Student (id, name, birthday) VALUES
 (1, 'Aymen', '1982-02-07'),
 (2, 'Skander', '2018-07-11');
 
-INSERT INTO Etudiant (id, name, birthday, section) VALUES
-(1, 'Aymen', '1982-02-07', 'GL'),
-(2, 'Skander', '2018-07-11', 'RT');
+INSERT INTO Etudiant (id, name, image, birthday, section) VALUES
+(1, 'Aymen', 'https://www.citypng.com/public/uploads/preview/profile-user-round-white-icon-symbol-png-701751695033499brrbuebohc.png', '1982-02-07', 'GL'),
+(2, 'Skander', 'https://www.citypng.com/public/uploads/preview/profile-user-round-white-icon-symbol-png-701751695033499brrbuebohc.png','2018-07-11', 'RT');
 
 INSERT INTO Section (id, designation, description) VALUES
 (1, 'GL', 'Génie Logiciel'),

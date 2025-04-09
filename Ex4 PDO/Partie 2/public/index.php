@@ -36,7 +36,10 @@ require_once "../src/View/header.php";
                 </div>
                 <div class="mb-3">
                     <label for="signup-role" class="form-label">Rôle</label>
-                    <input type="text" name="role" id="signup-role" class="form-control" placeholder="Entrez votre rôle" required>
+                    <select class="form-select" name="role" id="signup-role">
+                        <option selected value="user">Utilisateur</option>
+                        <option value="admin">Administrateur</option>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-success w-100">Sign up</button>
             </form>
