@@ -45,8 +45,8 @@ INSERT INTO Student (id, name, birthday) VALUES
 (2, 'Skander', '2018-07-11');
 
 INSERT INTO Etudiant (id, name, image, birthday, section) VALUES
-(1, 'Aymen', 'https://www.citypng.com/public/uploads/preview/profile-user-round-white-icon-symbol-png-701751695033499brrbuebohc.png', '1982-02-07', 'GL'),
-(2, 'Skander', 'https://www.citypng.com/public/uploads/preview/profile-user-round-white-icon-symbol-png-701751695033499brrbuebohc.png','2018-07-11', 'RT');
+(1, 'Aymen', 'https://placehold.co/400', '1982-02-07', 'GL'),
+(2, 'Skander', 'https://placehold.co/400','2018-07-11', 'RT');
 
 INSERT INTO Section (id, designation, description) VALUES
 (1, 'GL', 'Génie Logiciel'),

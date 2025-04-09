@@ -19,9 +19,9 @@ function renderAdminView($etudiant)
 {
     echo "
     <form action='./crud_etudiants/udpate_etudiant.php' method='POST' class='mt-4 mb-4 w-50 mx-auto'>
-        <div class='card shadow-sm'>
-            <img src='{$etudiant->getImage()}' class='card-img-top img-fluid' alt='Student Image'>
-            <div class='card-body'>
+        <div class='card shadow-sm d-flex flex-row'>
+            <img src='{$etudiant->getImage()}' class='img-fluid' alt='Student Image' style='width: 50%; object-fit: cover;'>
+            <div class='card-body' style='width: 50%;'>
                 <h5 class='card-title'>Name:</h5>
                 <div class='mb-3'>
                     <input type='text' name='name' value='{$etudiant->getName()}' class='form-control' placeholder='Enter name'>
@@ -43,9 +43,9 @@ function renderAdminView($etudiant)
                     <input type='text' name='image' value='{$etudiant->getImage()}' class='form-control' placeholder='Enter image URL'>
                 </div>
             </div>
-            <div class='card-footer text-center'>
-                <button type='submit' class='btn btn-primary w-100'>Update</button>
-            </div>
+        </div>
+        <div class='card-footer text-center mt-3'>
+            <button type='submit' class='btn btn-primary w-100'>Update</button>
         </div>
     </form>";
 }
@@ -53,9 +53,9 @@ function renderAdminView($etudiant)
 function renderUserView($etudiant)
 {
     echo "
-    <div class='card shadow-sm mt-4 mb-4 w-50 mx-auto'>
-        <img src='{$etudiant->getImage()}' class='card-img-top img-fluid' alt='Student Image'>
-        <div class='card-body'>
+    <div class='card shadow-sm mt-4 mb-4 w-50 mx-auto d-flex flex-row'>
+        <img src='{$etudiant->getImage()}' class='img-fluid' alt='Student Image' style='width: 50%; object-fit: cover;'>
+        <div class='card-body' style='width: 50%;'>
             <h5 class='card-title'>Name:</h5>
             <p class='card-text'>{$etudiant->getName()}</p>
             <p class='card-text'><strong>ID:</strong> {$etudiant->getId()}</p>
