@@ -43,3 +43,7 @@ CREATE TABLE Utilisateur (
 INSERT INTO Student (id, name, birthday) VALUES
 (1, 'Aymen', '1982-02-07'),
 (2, 'Skander', '2018-07-11');
+
+INSERT INTO Utilisateur (id, username, password, email, role) VALUES
+(1, 'admin', 'admin', 'admin@gmail.com', 'admin'),
+(2, 'user', 'user', 'user@gmail.com', 'user');

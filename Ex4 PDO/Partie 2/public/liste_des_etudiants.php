@@ -19,18 +19,17 @@ function afficherListeDesEtudiants(){
             <td>{$etudiant->getBirthday()}</td>
             <td>{$etudiant->getSection()}</td>
             <td>
+                <div class='btn-group' role='group'>
+                    <a href='detail_etudiant.php?filter={$etudiant->getId()}' class='btn btn-warning btn-sm'>Info</a>
         ";
             
         if(isset($_SESSION["role"]) && $_SESSION["role"] === "admin"){
             echo "   
-                <div class='btn-group' role='group'>
-                    <a href='detail_etudiant.php?filter={$etudiant->getId()}' class='btn btn-warning btn-sm'>Modifier</a>
                     <a href='./crud_etudiants/supprimer_etudiant.php?filter={$etudiant->getId()}' class='btn btn-danger btn-sm'>Supprimer</a>
-                </div>
             ";
         }
 
-        echo "</td></tr>";
+        echo "</div></td></tr>";
     }
 }
 

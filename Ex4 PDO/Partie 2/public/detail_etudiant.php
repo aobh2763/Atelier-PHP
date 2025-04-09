@@ -14,9 +14,9 @@ require_once "../src/Controller/Repository.php";
 function afficherDetails($id){
     $repository = new Repository("etudiant");
     $etudiant = $repository->findById($id);
-
-    echo 
-        "<form action='./crud_etudiants/update_etudiant.php' method='POST' class='mt-4 w-50 mx-auto'>
+    
+    if ($_SESSION["role"] == "admin") {
+        echo "<form action='./crud_etudiants/update_etudiant.php' method='POST' class='mt-4 w-50 mx-auto'>
             <div class='card shadow-sm'>
                 <img src='{$etudiant->getImage()}' class='card-img-top img-fluid' alt='Student Image'>
                 <div class='card-body'>
@@ -42,6 +42,18 @@ function afficherDetails($id){
                 </div>
             </div>
         </form>";
+    } else {
+        echo "<div class='card shadow-sm mt-4 w-50 mx-auto'>
+            <img src='{$etudiant->getImage()}' class='card-img-top img-fluid' alt='Student Image'>
+            <div class='card-body'>
+                <h5 class='card-title'>Name:</h5>
+                <p class='card-text'>{$etudiant->getName()}</p>
+                <p class='card-text'><strong>ID:</strong> {$etudiant->getId()}</p>
+                <p class='card-text'><strong>Birthday:</strong> {$etudiant->getBirthday()}</p>
+                <p class='card-text'><strong>Section:</strong> {$etudiant->getSection()}</p>
+            </div>
+        </div>";
+    }
 }
 
 require_once "../src/View/header.php";
