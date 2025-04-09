@@ -2,14 +2,16 @@
 session_start();
 
 require_once '../src/Controller/Repository.php';
+require_once "../src/View/header.php";
+require_once "../src/View/navbar.php";
 
 function valid($username, $password) {
     $repository = new Repository("utilisateur");
-    $utilisateurs = $repository->findAll();
+    $users = $repository->findAll();
 
-    foreach($utilisateurs as $utilisateur){
-        if($utilisateur->getUsername() === $username && $utilisateur->getPassword() == $password){
-            $_SESSION["role"] = $utilisateur->getRole();
+    foreach ($users as $user) {
+        if ($user->getUsername() === $username && $user->getPassword() === $password) {
+            $_SESSION["role"] = $user->getRole();
             return true;
         }
     }
@@ -17,14 +19,12 @@ function valid($username, $password) {
     return false;
 }
 
-if(!valid($_POST["username"], $_POST["password"])){
+if (!valid($_POST["username"], $_POST["password"])) {
     header("Location: index.php");
+    exit();
 }
-
-require_once "../src/View/header.php";
-require_once "../src/View/navbar.php";
 ?>
-        
+
 <section class="container mt-5">
     <div class="card shadow-sm">
         <div class="card-body text-center">

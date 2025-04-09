@@ -7,13 +7,14 @@ if(!isset($_SESSION["role"]) || $_SESSION["role"] !== "admin"){
 
 require_once "../../src/Controller/Repository.php";
 
-if(isset($_POST["id"]) && isset($_POST["name"]) && isset($_POST["birthday"]) && isset($_POST["section"])){
+if(isset($_POST["id"]) && isset($_POST["name"]) && isset($_POST["birthday"]) && isset($_POST["section"]) && isset($_POST["image"])){
     $repository = new Repository("etudiant");
     $repository->update(array(
         "id"=>$_POST["id"],
         "name"=>$_POST["name"],
         "birthday"=>$_POST["birthday"],
         "section"=>$_POST["section"],
+        "image"=>$_POST["image"],
     ));
 }
 
