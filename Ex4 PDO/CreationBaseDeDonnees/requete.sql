@@ -44,9 +44,9 @@ INSERT INTO Student (id, name, birthday) VALUES
 (1, 'Aymen', '1982-02-07'),
 (2, 'Skander', '2018-07-11');
 
-INSERT INTO Etudiant (id, name, birthday, section) VALUES
-(1, 'Aymen', '1982-02-07', 'GL'),
-(2, 'Skander', '2018-07-11', 'RT');
+INSERT INTO Etudiant (id, name, birthday, image, section) VALUES
+(1, 'Aymen', '1982-02-07', 'https://placehold.co/400','GL'),
+(2, 'Skander', '2018-07-11', 'https://placehold.co/400','RT');
 
 INSERT INTO Section (id, designation, description) VALUES
 (1, 'GL', 'Génie Logiciel'),
