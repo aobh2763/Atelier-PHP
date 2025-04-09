@@ -12,7 +12,7 @@ class Repository {
         $this->nomTable = $nomTable;
     }
 
-    // Retourne un tableau d'objets de la classe correspondante à la table (fix)
+    // Retourne un tableau d'objets de la classe correspondante à la table
     public function findAll() {
         $bd = ConnectionBD::getInstance();
 
