@@ -1,9 +1,9 @@
 <?php
 
-require_once 'ConnectionBD.php';
-require_once 'Etudiant.php';
-require_once 'Section.php';
-require_once 'Utilisateur.php';
+require_once __DIR__."\ConnectionBD.php";
+require_once __DIR__."\..\Model\Etudiant.php";
+require_once __DIR__."\..\Model\Section.php";
+require_once __DIR__."\..\Model\Utilisateur.php";
 
 class Repository {
     private string $nomTable;
@@ -32,7 +32,7 @@ class Repository {
                 }, $donnees);
             case 'utilisateur':
                 return array_map(function ($donnee) {
-                    return new Utilisateur($donnee['id'], $donnee['username'], $donnee['password'], $donnee['email']);
+                    return new Utilisateur($donnee['id'], $donnee['username'], $donnee['password'], $donnee['email'], $donnee["role"]);
                 }, $donnees);
             default:
                 echo "Table non reconnue : " . $this->nomTable;
@@ -56,7 +56,7 @@ class Repository {
                 case 'section':
                     return new Section($donnee['id'], $donnee['designation'], $donnee['description']);
                 case 'utilisateur':
-                    return new Utilisateur($donnee['id'], $donnee['username'], $donnee['password'], $donnee['email']);
+                    return new Utilisateur($donnee['id'], $donnee['username'], $donnee['password'], $donnee['email'], $donnee["role"]);
                 default:
                     echo "Table non reconnue : " . $this->nomTable;
                     return null;
@@ -80,6 +80,24 @@ class Repository {
         $reponse->execute(array_values($details));
 
         return $bd->lastInsertId();
+    }
+
+    // Retourne le nombre de lignes affectées
+    public function update(array $details): int {
+        $bd = ConnectionBD::getInstance();
+
+        $keyValuePairs = implode(",", array_map(function ($key) {
+            return $key !== 'id' ? "$key=?" : null;
+        }, array_keys($details)));
+        $keyValuePairs = implode(",", array_filter(explode(",", $keyValuePairs)));
+
+        $req = "UPDATE $this->nomTable SET $keyValuePairs WHERE id=?;";
+        $reponse = $bd->prepare($req);
+        $values = array_values(array_filter($details, fn($key) => $key !== 'id', ARRAY_FILTER_USE_KEY));
+        $values[] = $details['id'];
+        $reponse->execute($values);
+
+        return $reponse->rowCount();
     }
 
     // Supprime l'objet de la table et retourne true si la suppression a réussi, sinon false si l'id n'existe pas

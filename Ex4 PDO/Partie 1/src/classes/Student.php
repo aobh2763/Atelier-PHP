@@ -1,4 +1,5 @@
 <?php
+include_once "ConnectionBD.php";
 
 class Student {
     private int $id;
@@ -32,7 +33,6 @@ class Student {
         $req->execute(array($id));
 
         if ($req->rowCount() == 0) {
-            echo "L'étudiant n'existe pas";
             return null;
         }
 

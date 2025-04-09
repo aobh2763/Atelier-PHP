@@ -27,6 +27,10 @@ class Etudiant {
         return $this->birthday;
     }
 
+    public function getImage(): string {
+        return $this->image;
+    }
+
     public function getSection(): string {
         return $this->section;
     }
